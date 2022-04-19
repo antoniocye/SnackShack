@@ -6,11 +6,6 @@
 </head>
 <body>
 
-    <script>
-        var dropdownOnClick = function(){
-            document.querySelector('ul').classList.toggle('active');
-        };
-    </script>
     
     <div class="whole">
         <div class="content-wrapper">
@@ -23,16 +18,16 @@
         <div class="body">
 
             
-            <div class="dropdown" onclick="dropdownOnClick">
-                <button>Dropdown</button>
-                <ul>
-                  <li><a href="#">Item 1</a></li>
-                  <li><a href="#">Item 2</a></li>
-                  <li><a href="#">Item 3</a></li>
-                  <li><a href="#">Item 4</a></li>
-                </ul>
-              </div>
 
+            <div class="dropdown">
+                <button class="dropbtn">Type of Food</button>
+                <div class="dropdown-content">
+                  <a href="#">Hot Meals</a>
+                  <a href="#">Sandwiches</a>
+                  <a href="#">Snacks</a>
+                  <a href="#">Drinks</a>
+                </div>
+              </div>
 
             <div class="box-container">
                 

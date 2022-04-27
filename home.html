@@ -22,13 +22,29 @@
                 </div>
 
                 <div class="secondLine">
-                    <h5>MENU</h5>
+                    <div onclick="goToFirstPage()" class="headerIconsRow"><img class="headerIcon" id="iconLeft" src="left_arrow.png" style="margin-right:10px;transform:rotate(-90deg);"> <h5>MENU</h5></div>
 
-                    <h5>GO TO PLATE</h5>
+                    
+                    <div style="position:absolute; left:calc(50% - 40px);cursor:pointer;">
+                        <img onclick="location.href='#';" class="headerIcon" style="margin-right:35px;" src="sign_in.png">
+                        
+                        <img onclick="location.href='#';" class="headerIcon" src="registry.png" > 
+                    
+                    </div>
+                    
+                    <div class="headerIconsRow" id="GoToPlate" onclick="goToSecondPage()"> <h5>PLATE</h5> <img style="margin-left:10px;" id="iconRight" class="headerIcon" src="right_arrow.png"></div>
 
                 </div>
+                
+                <div class="thirdLine">
+                    <div class="row"><p style="margin-right:5px">Signed in as:</p><p>Antonio</p></div>
+                    <div class="row"><p style="margin-right:5px">Account balance:</p><p id="accountBalance" >20500</p></div>
+                </div>
             </div>
-        <div class="body">
+            
+            
+            
+        <div class="firstpage" id="firstpage">
 
 
             <div class="dropdown">
@@ -41,6 +57,7 @@
                 </div>
               </div>
 
+            
 
             <div class="box-container">
                 
@@ -57,15 +74,15 @@
                         <h3>Beef lasagna with salad</h3>
                         <div class="rowWithPrice">
                             
-                            <p>1000 CFA</p>
+                            <div class="totalCountRow"><p style="margin-right:2px" id="price1">1500</p> <p> CFA</p> </div>
                         
-                            <p class="numberInPlate" id="numberInPlate1">0</p>
+                            <p class="numberInPlate" style="color:white;" id="numberInPlate1">0</p>
                         </div>
 
                         <div class="rowWithButtons">
-                            <button style="font-size: 10px;" onClick="addItem()" class="addItem">Plus</button>
+                            <button style="font-size: 10px;" onClick="addItem(1)" class="addItem">Plus</button>
 
-                            <button style="font-size: 10px;" onClick="removeItem()" class="addItem">Minus</button>
+                            <button style="font-size: 10px;" onClick="removeItem(1)" class="addItem">Minus</button>
                             
                         </div>
 </div>
@@ -80,15 +97,20 @@
                         </div>
                     </div>
                     <div class="text-container">
-                        <h3>Beef lasagna with salad</h3>
+                        <h3 style="color:purple;">Beef lasagna with salad</h3>
                         <div class="rowWithPrice">
                             
-                            <p>1000 CFA</p>
+                            <div class="totalCountRow"><p style="margin-right:2px" id="price2">800</p> <p> CFA</p> </div>
                         
-                            <p class="numberInPlate">0</p>
+                            <p style="background-color:purple;color:white;" id="numberInPlate2" class="numberInPlate">0</p>
                         </div>
 
-                    <button style="font-size: 10px;" class="addItem">Add to plate</button>
+                    <div class="rowWithButtons">
+                            <button style="font-size: 10px;" onClick="addItem(2)" class="addItem">Plus</button>
+
+                            <button style="font-size: 10px;" onClick="removeItem(2)" class="addItem">Minus</button>
+                            
+                        </div>
                     </div>
                 </div>
 
@@ -101,15 +123,20 @@
                         </div>
                     </div>
                     <div class="text-container">
-                        <h3>Beef lasagna with salad</h3>
+                        <h3 style="color:red;">Beef lasagna with salad</h3>
                         <div class="rowWithPrice">
                             
-                            <p>1000 CFA</p>
+                            <div class="totalCountRow"><p style="margin-right:2px" id="price3">5000</p> <p> CFA</p> </div>
                         
-                            <p class="numberInPlate">0</p>
+                            <p style="background-color:red;color:white;" class="numberInPlate" id="numberInPlate3">0</p>
                         </div>
 
-                    <button style="font-size: 10px;" class="addItem">Add to plate</button>
+                    <div class="rowWithButtons">
+                            <button style="font-size: 10px;" onClick="addItem(3)" class="addItem">Plus</button>
+
+                            <button style="font-size: 10px;" onClick="removeItem(3)" class="addItem">Minus</button>
+                            
+                        </div>
                     </div>
                 </div>
 
@@ -122,24 +149,68 @@
                         </div>
                     </div>
                     <div class="text-container">
-                        <h3>Beef lasagna with salad</h3>
+                        <h3 style="color:orange;">Beef lasagna with salad</h3>
                         <div class="rowWithPrice">
                             
-                            <p>1000 CFA</p>
+                            <div class="totalCountRow"><p style="margin-right:2px" id="price4">200</p> <p> CFA</p> </div>
                         
-                            <p class="numberInPlate">0</p>
+                            <p style="background-color:orange;color:white;" class="numberInPlate" id="numberInPlate4">0</p>
                         </div>
 
-                    <button style="font-size: 10px;" class="addItem">Add to plate</button>
+                    <div class="rowWithButtons">
+                            <button style="font-size: 10px;" onClick="addItem(4)" class="addItem">Plus</button>
+
+                            <button style="font-size: 10px;" onClick="removeItem(4)" class="addItem">Minus</button>
+                            
+                        </div>
                     </div>
                 </div>
+            
+        </div>
+            
+                            <div class="totalCountRow"><h4>Total (CFA): </h4> <h4 style="margin-left:5px;" id="totalCount">0</h4> </div>
 
+
+            </div>
+            <div class="secondpage" id="secondpage">
+                
+                <h3>Receipt of your purchases. Click Purchase to confirm.</h3>
+                
+                <div class="row"><p style="margin-right:5px">Purchase ID:</p><p>234213</p></div>
+                <table id="tableReceipt" class="table">
+                  <tr>
+                    <th>Title</th>
+                    <th>Unit Price</th>
+                    <th>Number</th>
+                    <th>Total</th>
+                  </tr>
+                  <tr>
+                    <td>Beef</td>
+                    <td>2000</td>
+                    <td>5</td>
+                    <td>10000</td>
+                  </tr>
+                  <tr>
+                    <td>Cheese</td>
+                    <td>4000</td>
+                    <td>3</td>
+                    <td>12000</td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td></td>
+                        <td>Total</td>
+                        <td>22000</td>
+                    </tr>
+                </table>
                 
                 
-        </div>
+                
+                <div onClick="purchase()" class="purchase">Purchase</div>
 
-        </div>
+            </div>
 
+            
         <div class="footer">
             <p style="color:white;">© 2022 Copyright INTERNATIONAL SCHOOL OF OUAGADOUGOU | ALL RIGHTS RESERVED </p>
 
@@ -150,17 +221,57 @@
         
     
     <script>
-    function addItem() { 
-        var pastNumber = document.getElementById("numberInPlate1").innerHTML;
-        document.getElementById('numberInPlate1').innerHTML = parseInt(pastNumber)+1;
-     } 
-        
-     function removeItem() { 
-        var pastNumber = document.getElementById("numberInPlate1").innerHTML;
-        if(parseInt(pastNumber)>0){
-            document.getElementById('numberInPlate1').innerHTML = parseInt(pastNumber)-1;
+    function addItem(number) { 
+        var accountBalance = document.getElementById("accountBalance").innerHTML; //past account balance
+        var pastNumber = document.getElementById("numberInPlate"+number).innerHTML; //past count on the item list
+        var price = document.getElementById("price"+number).innerHTML; //price of the item
+
+        var newCount = parseInt(document.getElementById("totalCount").innerHTML)+parseInt(price); //new count of all purchased items
+
+        if(newCount<=accountBalance){
+            document.getElementById('numberInPlate'+number).innerHTML = parseInt(pastNumber)+1;
+            document.getElementById("totalCount").innerHTML = newCount;
+        }
+        else{
+            alert("You do not have enough money in your balance to execute this operation");
         }
      } 
+        
+     function removeItem(number) { 
+        var pastNumber = document.getElementById("numberInPlate"+number).innerHTML;
+        if(parseInt(pastNumber)>0){
+            document.getElementById('numberInPlate'+number).innerHTML = parseInt(pastNumber)-1;
+            
+            var count = document.getElementById("totalCount").innerHTML;
+            var price = document.getElementById("price"+number).innerHTML;
+            document.getElementById("totalCount").innerHTML = parseInt(count)-parseInt(price);
+        }
+     } 
+        
+        
+        
+        function goToSecondPage(){
+            document.getElementById("firstpage").style="display:none;";
+            document.getElementById("secondpage").style="display:flex;";
+            document.getElementById("iconLeft").style="transform:rotate(0deg);margin-right:10px;";
+            document.getElementById("iconRight").style="transform:rotate(90deg);margin-left:10px;";
+        }
+        
+        function goToFirstPage(){
+            document.getElementById("firstpage").style="display:flex;";
+            document.getElementById("secondpage").style="display:none;";
+            document.getElementById("iconLeft").style="transform:rotate(-90deg);margin-right:10px;";
+            document.getElementById("iconRight").style="transform:rotate(0deg);margin-left:10px;";
+        }
+        
+        function purchase(){
+            let isExecuted = confirm("Are you sure to execute this action? Complains and returns are not guaranteed to be accepted.");
+            
+            if(isExecuted){
+                alert("Success! You can view and print this purchase receipt in your registry.");
+                goToFirstPage();
+            }
+        }
     </script>
     
 </body>

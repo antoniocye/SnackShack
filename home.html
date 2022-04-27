@@ -3,6 +3,8 @@
 <head>
     <link rel="stylesheet" href="basestyle.css">
     <title>Home page | Snack Shack</title>
+    
+   
 </head>
 <body>
 
@@ -57,11 +59,16 @@
                             
                             <p>1000 CFA</p>
                         
-                            <p class="numberInPlate">0</p>
+                            <p class="numberInPlate" id="numberInPlate1">0</p>
                         </div>
 
-                    <button style="font-size: 10px;" class="addItem">Add to plate</button>
-                    </div>
+                        <div class="rowWithButtons">
+                            <button style="font-size: 10px;" onClick="addItem()" class="addItem">Plus</button>
+
+                            <button style="font-size: 10px;" onClick="removeItem()" class="addItem">Minus</button>
+                            
+                        </div>
+</div>
                 </div>
 
                 <div class="a-box">
@@ -128,6 +135,7 @@
                 </div>
 
                 
+                
         </div>
 
         </div>
@@ -138,6 +146,22 @@
         </div>
     </div>
 
+        
+        
+    
+    <script>
+    function addItem() { 
+        var pastNumber = document.getElementById("numberInPlate1").innerHTML;
+        document.getElementById('numberInPlate1').innerHTML = parseInt(pastNumber)+1;
+     } 
+        
+     function removeItem() { 
+        var pastNumber = document.getElementById("numberInPlate1").innerHTML;
+        if(parseInt(pastNumber)>0){
+            document.getElementById('numberInPlate1').innerHTML = parseInt(pastNumber)-1;
+        }
+     } 
+    </script>
     
 </body>
 

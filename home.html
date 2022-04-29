@@ -17,7 +17,7 @@
 
             
                 <div class="firstLine">
-                    <img src="iso_logo.png" style="width: 30%; height:auto; margin-right:10px;">
+                    <img onclick="window.location.reload()" src="iso_logo.png" style="width: 30%; height:auto; margin-right:10px;" class="clickable">
                     <h4>ISO Snack Shack Control System</h4>
                 </div>
 
@@ -26,9 +26,9 @@
 
                     
                     <div style="position:absolute; left:calc(50% - 40px);cursor:pointer;">
-                        <img onclick="location.href='#';" class="headerIcon" style="margin-right:35px;" src="sign_in.png">
+                        <img onclick="goToSignInPage()" class="headerIcon" id="sign-inicon" style="margin-right:35px;" src="sign_in.png">
                         
-                        <img onclick="location.href='#';" class="headerIcon" src="registry.png" > 
+                        <img onclick="goToRegistryPage()" class="headerIcon" id="registryicon" src="registry.png" > 
                     
                     </div>
                     
@@ -210,6 +210,21 @@
 
             </div>
 
+
+            
+
+
+            <div class="registrypage" id="registrypage">
+
+
+            </div>
+
+
+            <div class="sign-inpage" id="signinpage">
+
+
+            </div>
+
             
         <div class="footer">
             <p style="color:white;">© 2022 Copyright INTERNATIONAL SCHOOL OF OUAGADOUGOU | ALL RIGHTS RESERVED </p>
@@ -248,30 +263,49 @@
         }
      } 
         
+     function resetPageView(){
+        document.getElementById("firstpage").style="display:none;";
+        document.getElementById("secondpage").style="display:none;";
+        document.getElementById("signinpage").style="display:none;";
+        document.getElementById("registrypage").style="display:none;";
+        document.getElementById("sign-inicon").style="opacity:1;margin-right:35px;";
+        document.getElementById("registryicon").style="opacity:1;";
+     }
         
+     function goToRegistryPage(){
+        resetPageView();
+        document.getElementById("registrypage").style="display:block;";
+        document.getElementById("registryicon").style="opacity:.3;";
+     }
+
+     function goToSignInPage(){
+        resetPageView();
+        document.getElementById("sign-inicon").style="opacity:.3;margin-right:35px;";
+        document.getElementById("sign-inpage").style="display:block;";
+     }
         
-        function goToSecondPage(){
-            document.getElementById("firstpage").style="display:none;";
-            document.getElementById("secondpage").style="display:flex;";
-            document.getElementById("iconLeft").style="transform:rotate(0deg);margin-right:10px;";
-            document.getElementById("iconRight").style="transform:rotate(90deg);margin-left:10px;";
+    function goToSecondPage(){
+        resetPageView();
+        document.getElementById("secondpage").style="display:flex;";
+        document.getElementById("iconLeft").style="transform:rotate(0deg);margin-right:10px;";
+        document.getElementById("iconRight").style="transform:rotate(90deg);margin-left:10px;";
+    }
+    
+    function goToFirstPage(){
+        resetPageView();
+        document.getElementById("firstpage").style="display:flex;";
+        document.getElementById("iconLeft").style="transform:rotate(-90deg);margin-right:10px;";
+        document.getElementById("iconRight").style="transform:rotate(0deg);margin-left:10px;";
+    }
+    
+    function purchase(){
+        let isExecuted = confirm("Are you sure to execute this action? Complains and returns are not guaranteed to be accepted.");
+        
+        if(isExecuted){
+            alert("Success! You can view and print this purchase receipt in your registry.");
+            goToFirstPage();
         }
-        
-        function goToFirstPage(){
-            document.getElementById("firstpage").style="display:flex;";
-            document.getElementById("secondpage").style="display:none;";
-            document.getElementById("iconLeft").style="transform:rotate(-90deg);margin-right:10px;";
-            document.getElementById("iconRight").style="transform:rotate(0deg);margin-left:10px;";
-        }
-        
-        function purchase(){
-            let isExecuted = confirm("Are you sure to execute this action? Complains and returns are not guaranteed to be accepted.");
-            
-            if(isExecuted){
-                alert("Success! You can view and print this purchase receipt in your registry.");
-                goToFirstPage();
-            }
-        }
+    }
     </script>
     
 </body>

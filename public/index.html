@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="basestyle.css">
+    <title>Home page | Snack Shack</title>
+   <link rel="icon" type="image/x-icon" href="favicon.jpg">
+   <script src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />   
+</head>
+<body>
+
+    
+    <div class="whole">
+        <div class="content-wrapper">
+         
+            <div class="header">
+            
+                <div class="firstLine">
+                    <img onclick="window.location.reload()" src="iso_logo.png" style="width: 30%; height:auto; margin-right:10px;" class="clickable">
+                    <h4>SNACK SHACK</h4>
+                </div>
+
+                <div class="secondLine">
+                    <div onclick="goToFirstPage()" class="headerIconsRow"><img class="headerIcon" id="iconLeft" src="left_arrow.png" style="margin-right:10px;transform:rotate(-90deg);"> <h5>MENU</h5></div>
+
+                    
+                    <div style="position:absolute; left:calc(50% - 40px);cursor:pointer;">
+                        <img onclick="goToSignInPage()" class="headerIcon" id="sign-inicon" style="margin-right:35px;" src="sign_in.png">
+                        
+                        <img onclick="goToRegistryPage()" class="headerIcon" id="registryicon" src="registry.png" > 
+                    
+                    </div>
+                    
+                    <div class="headerIconsRow" id="GoToPlate" onclick="goToSecondPage()"> <h5>PLATE</h5> <img style="margin-left:10px;" id="iconRight" class="headerIcon" src="right_arrow.png"></div>
+
+                </div>
+                
+                <div class="thirdLine">
+                    <div class="row"><p style="margin-right:5px">Signed in as:</p><p>Antonio</p></div>
+                    <div class="row"><p id="date_text"></p></div>
+                    <div class="row"><p style="margin-right:5px">Account balance:</p><p id="accountBalance" >20500</p></div>
+                </div>
+            </div>
+            
+            
+            
+        <div class="firstpage" id="firstpage">
+
+            <div class="dropdown">
+                <button class="dropbtn">Type of Food</button>
+                <div class="dropdown-content">
+                  <a href="#">Hot Meals</a>
+                  <a href="#">Sandwiches</a>
+                  <a href="#">Snacks</a>
+                  <a href="#">Drinks</a>
+                </div>
+              </div>
+
+            <div class="box-container">
+                
+                
+                <div class="a-box">
+                    <div class="img-container">
+                        <div class="img-inner">
+                        <div class="inner-skew">
+                            <img src="https://images.unsplash.com/photo-1584791097929-aa825fe8e1e1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+                        </div>
+                        </div>
+                    </div>
+                    <div class="text-container">
+                        <h3>Beef lasagna with salad</h3>
+                        <div class="rowWithPrice">
+                            
+                            <div class="totalCountRow"><p style="margin-right:2px" id="price1">1500</p> <p> CFA</p> </div>
+                        
+                            <p class="numberInPlate" style="color:white;" id="numberInPlate1">0</p>
+                        </div>
+
+                        <div class="rowWithButtons">
+                            <button style="font-size: 10px;" onClick="addItem(1)" class="addItem">Add</button>
+
+                            <button style="font-size: 10px;" onClick="removeItem(1)" class="addItem">Remove</button>
+                            
+                        </div>  
+            </div>
+            
+        </div>
+
+                <div class="a-box">
+                    <div class="img-container">
+                        <div class="img-inner">
+                        <div class="inner-skew">
+                            <img src="https://images.unsplash.com/photo-1584791097929-aa825fe8e1e1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+                        </div>
+                        </div>
+                    </div>
+                    <div class="text-container">
+                        <h3 style="color:purple;">Beef lasagna with salad</h3>
+                        <div class="rowWithPrice">
+                            
+                            <div class="totalCountRow"><p style="margin-right:2px" id="price2">800</p> <p> CFA</p> </div>
+                        
+                            <p style="background-color:purple;color:white;" id="numberInPlate2" class="numberInPlate">0</p>
+                        </div>
+
+                    <div class="rowWithButtons">
+                            <button style="font-size: 10px;" onClick="addItem(2)" class="addItem">Add</button>
+
+                            <button style="font-size: 10px;" onClick="removeItem(2)" class="addItem">Remove</button>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="a-box">
+                    <div class="img-container">
+                        <div class="img-inner">
+                        <div class="inner-skew">
+                            <img src="https://images.unsplash.com/photo-1584791097929-aa825fe8e1e1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+                        </div>
+                        </div>
+                    </div>
+                    <div class="text-container">
+                        <h3 style="color:red;">Beef lasagna with salad</h3>
+                        <div class="rowWithPrice">
+                            
+                            <div class="totalCountRow"><p style="margin-right:2px" id="price3">5000</p> <p> CFA</p> </div>
+                        
+                            <p style="background-color:red;color:white;" class="numberInPlate" id="numberInPlate3">0</p>
+                        </div>
+
+                    <div class="rowWithButtons">
+                            <button style="font-size: 10px;" onClick="addItem(3)" class="addItem">Add</button>
+
+                            <button style="font-size: 10px;" onClick="removeItem(3)" class="addItem">Remove</button>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="a-box">
+                    <div class="img-container">
+                        <div class="img-inner">
+                        <div class="inner-skew">
+                            <img src="https://images.unsplash.com/photo-1584791097929-aa825fe8e1e1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+                        </div>
+                        </div>
+                    </div>
+                    <div class="text-container">
+                        <h3 style="color:orange;">Beef lasagna with salad</h3>
+                        <div class="rowWithPrice">
+                            
+                            <div class="totalCountRow"><p style="margin-right:2px" id="price4">200</p> <p> CFA</p> </div>
+                        
+                            <p style="background-color:orange;color:white;" class="numberInPlate" id="numberInPlate4">0</p>
+                        </div>
+
+                    <div class="rowWithButtons">
+                            <button style="font-size: 10px;" onClick="addItem(4)" class="addItem">Add</button>
+
+                            <button style="font-size: 10px;" onClick="removeItem(4)" class="addItem">Remove</button>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+            
+                            <div class="totalCountRow"><h4>Total (CFA): </h4> <h4 style="margin-left:5px;" id="totalCount">0</h4> </div>
+
+
+            </div>
+
+
+
+
+            <div class="secondpage" id="secondpage">
+                
+                <h3>Receipt of your purchases. Click Purchase to confirm.</h3>
+                
+                <div class="row"><p style="margin-right:5px">Purchase ID:</p><p>234213</p></div>
+                <table id="tableReceipt" class="table">
+                  <tr>
+                    <th>Title</th>
+                    <th>Unit Price</th>
+                    <th>Number</th>
+                    <th>Total</th>
+                  </tr>
+                  <tr>
+                    <td>Beef</td>
+                    <td>2000</td>
+                    <td>5</td>
+                    <td>10000</td>
+                  </tr>
+                  <tr>
+                    <td>Cheese</td>
+                    <td>4000</td>
+                    <td>3</td>
+                    <td>12000</td>
+                  </tr>
+                  <tr>
+                      <td></td>
+                      <td></td>
+                        <td>Total</td>
+                        <td>22000</td>
+                    </tr>
+                </table>
+                
+                
+                
+                <div onClick="purchase()" class="purchase">Purchase</div>
+
+            </div>
+
+
+            
+
+
+
+
+            <div class="registrypage" id="registrypage">
+                <h2>Registry of all transactions</h2>
+                <h4>This is a log of all transactions effectuated with this account</h4>
+                <div id="log_items"></div>
+            </div>
+
+
+            <div class="sign-inpage" id="signinpage">
+                <div id="firebaseui-auth-container"></div>
+                <div id="loader">Loading...</div>
+
+                <form class="sign_in_form">  
+                    <div class="container"> 
+                        <div class=""con_row" style="font-size:25px; font-weight:bold">
+                            Sign into your account:
+                        </div>
+                        <div  class="con_row">
+                            <label>Email ID: </label>   
+                            <input type="text" placeholder="Enter email address" name="email" required>
+                        </div>  
+                        <div  class="con_row">
+                            <label>Password: </label>   
+                            <input type="password" placeholder="Enter Password" name="password" required>   
+                        </div>  
+                        <div  class="con_row">
+                            <button type="submit">Login</button>   
+                            <input type="checkbox" checked="checked"> Remember me   
+                        </div>  
+                        <div  class="con_row">
+                            <div style="font-size:10px">Forgot <a href="#"> password? </a> </div>
+                        </div>  
+                          
+                        
+                          
+                    </div>   
+                </form>   
+
+            </div>
+
+            
+        <div class="footer">
+            <p style="color:white;"> INTERNATIONAL SCHOOL OF OUAGADOUGOU </p>
+
+        </div>
+    </div>
+
+    <script type="module">
+        // Handle firebase sign in
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        const firebaseConfig = {
+          apiKey: "AIzaSyCvGKfbnV5rSTDNPb_i4d7eGDVSCexwaIg",
+          authDomain: "scss-cccd5.firebaseapp.com",
+          projectId: "scss-cccd5",
+          storageBucket: "scss-cccd5.appspot.com",
+          messagingSenderId: "575352690976",
+          appId: "1:575352690976:web:48da861a2ee6cc417b9f45",
+          measurementId: "G-Z3VWY3QP13"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+
+
+        PROVIDER_ID = "575352690976-e45mv301ql7jun560hepnpd4uf6suq02.apps.googleusercontent.com"
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        ui.start('#firebaseui-auth-container', {
+            signInOptions: [
+                // List of OAuth providers supported.
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            ],
+            // Other config options...
+            });
+
+      </script>
+        
+    
+    <script>
+    function addItem(number) { 
+        var accountBalance = document.getElementById("accountBalance").innerHTML; //past account balance
+        var pastNumber = document.getElementById("numberInPlate"+number).innerHTML; //past count on the item list
+        var price = document.getElementById("price"+number).innerHTML; //price of the item
+
+        var newCount = parseInt(document.getElementById("totalCount").innerHTML)+parseInt(price); //new count of all purchased items
+
+        if(newCount<=accountBalance){
+            document.getElementById('numberInPlate'+number).innerHTML = parseInt(pastNumber)+1;
+            document.getElementById("totalCount").innerHTML = newCount;
+        }
+        else{
+            alert("You do not have enough money in your balance to execute this operation");
+        }
+     } 
+    
+     function setDate(){
+        const date = new Date();
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+        let currentDate = day+"/"+month+"/"+year;
+        var date_text = document.getElementById('date_text');
+        date_text.innerHTML = currentDate;
+     }
+     function removeItem(number) { 
+        var pastNumber = document.getElementById("numberInPlate"+number).innerHTML;
+        if(parseInt(pastNumber)>0){
+            document.getElementById('numberInPlate'+number).innerHTML = parseInt(pastNumber)-1;
+            
+            var count = document.getElementById("totalCount").innerHTML;
+            var price = document.getElementById("price"+number).innerHTML;
+            document.getElementById("totalCount").innerHTML = parseInt(count)-parseInt(price);
+        }
+     } 
+        
+     function resetPageView(){
+        document.getElementById("firstpage").style="display:none;";
+        document.getElementById("secondpage").style="display:none;";
+        document.getElementById("signinpage").style="display:none;";
+        document.getElementById("registrypage").style="display:none;";
+        document.getElementById("sign-inicon").style="opacity:1;margin-right:35px;";
+        document.getElementById("registryicon").style="opacity:1;";
+     }
+
+     function goToRegistryPage(){
+        resetPageView();
+        document.getElementById("registrypage").style="display:block;padding:10px";
+        document.getElementById("registryicon").style="opacity:.3;";
+        const list_of_logs = [
+            "Purchased 10 items at a total price of 2300 on 12/12/2022",
+            "Purchased 5 items at a total price of 2300 on 09/12/2022",
+            "Purchased 3 items at a total price of 2300 on 1/12/2022",
+            "Purchased 10 items at a total price of 2300 on 25/11/2022",
+            "Purchased 20 items at a total price of 2300 on 23/11/2022"
+        ];
+        log_div = document.getElementById("log_items");
+        log_div.innerHTML = ""
+
+        for (let i = 0; i < list_of_logs.length; i++){
+            log_div.innerHTML +=  "<p>"+list_of_logs[i]+"</p>";
+        }
+
+     }
+
+     function goToSignInPage(){
+        resetPageView();
+        document.getElementById("sign-inicon").style="opacity:.3;margin-right:35px;";
+        document.getElementById("signinpage").style="display:flex;";
+
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        var uiConfig = {
+            callbacks: {
+                signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+                // User successfully signed in.
+                // Return type determines whether we continue the redirect automatically
+                // or whether we leave that to developer to handle.
+                return true;
+                },
+                uiShown: function() {
+                // The widget is rendered.
+                // Hide the loader.
+                document.getElementById('loader').style.display = 'none';
+                }
+            },
+            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+            signInFlow: 'popup',
+            signInSuccessUrl: '<url-to-redirect-to-on-success>',
+            signInOptions: [
+                // Leave the lines as is for the providers you want to offer your users.
+                firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            ],
+            // Terms of service url.
+            tosUrl: '<your-tos-url>',
+            // Privacy policy url.
+            privacyPolicyUrl: '<your-privacy-policy-url>'
+            };
+     }
+        
+    function goToSecondPage(){
+        resetPageView();
+        document.getElementById("secondpage").style="display:flex;";
+        document.getElementById("iconLeft").style="transform:rotate(0deg);margin-right:10px;";
+        document.getElementById("iconRight").style="transform:rotate(90deg);margin-left:10px;";
+    }
+    
+    function goToFirstPage(){
+        resetPageView();
+        document.getElementById("firstpage").style="display:flex;";
+        document.getElementById("iconLeft").style="transform:rotate(-90deg);margin-right:10px;";
+        document.getElementById("iconRight").style="transform:rotate(0deg);margin-left:10px;";
+    }
+    
+    function purchase(){
+        let isExecuted = confirm("Are you sure to execute this action? Complains and returns are not guaranteed to be accepted.");
+        
+        if(isExecuted){
+            alert("Success! You can view and print this purchase receipt in your registry.");
+            goToFirstPage();
+        }
+    }
+
+
+    setDate();
+    </script>
+    
+</body>
+
+</html>
+
+<!-- 
+
+
+    https://stackoverflow.com/questions/22234504/add-delete-button
+
+-->
